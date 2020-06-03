@@ -1,6 +1,6 @@
 using System;
 
-namespace MassTransit.Mqtt.Models
+namespace MT.RBTMQ.Models
 {
     public class ErrorViewModel
     {

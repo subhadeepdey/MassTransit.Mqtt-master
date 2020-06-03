@@ -1,8 +1,9 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using MassTransit;
+using Microsoft.Extensions.Hosting;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MassTransit.Mqtt.Services
+namespace MT.RBTMQ.Services
 {
   public class BusService : IHostedService
   {

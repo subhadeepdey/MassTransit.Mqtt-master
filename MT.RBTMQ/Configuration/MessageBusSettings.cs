@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MassTransit.Mqtt.Configuration
+namespace MT.RBTMQ.Configuration
 {
   public class MessageBusSettings
   {

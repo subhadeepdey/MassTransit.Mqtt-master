@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MassTransit.Mqtt.MessageQueue.Serialisation
+namespace MT.RBTMQ.MessageQueue.Serialisation
 {
   /// <summary>
   /// Indicates the message JSON is actually an array of type <typeparamref name="T"/>.

@@ -4,10 +4,11 @@ using System.Net.Mime;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
+using MassTransit;
 using MassTransit.Serialization;
 using Newtonsoft.Json;
 
-namespace MassTransit.Mqtt.MessageQueue.Serialisation
+namespace MT.RBTMQ.MessageQueue.Serialisation
 {
   public class RawJsonMessageSerializer :
       IMessageSerializer

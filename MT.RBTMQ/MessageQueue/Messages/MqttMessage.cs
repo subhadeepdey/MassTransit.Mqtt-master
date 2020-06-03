@@ -1,8 +1,8 @@
-﻿using MassTransit.Mqtt.MessageQueue.Serialisation;
+﻿using MT.RBTMQ.MessageQueue.Serialisation;
 using System;
 using System.Collections.Generic;
 
-namespace MassTransit.Mqtt.MessageQueue.Messages
+namespace MT.RBTMQ.MessageQueue.Messages
 {
   public class MqttMessage : IRawJsonArrayMessage<MqttItem>
   {

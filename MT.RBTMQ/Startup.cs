@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
 using System.Threading.Tasks;
-using MassTransit.Mqtt.Configuration;
-using MassTransit.Mqtt.MessageQueue.Consumers;
-using MassTransit.Mqtt.MessageQueue.Messages;
-using MassTransit.Mqtt.MessageQueue.Serialisation;
-using MassTransit.Mqtt.Services;
+using MT.RBTMQ.Configuration;
+using MT.RBTMQ.MessageQueue.Consumers;
+using MT.RBTMQ.MessageQueue.Messages;
+using MT.RBTMQ.MessageQueue.Serialisation;
+using MT.RBTMQ.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -17,8 +17,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
+using MassTransit;
 
-namespace MassTransit.Mqtt
+namespace MT.RBTMQ
 {
   public class Startup
   {
@@ -59,9 +60,9 @@ namespace MassTransit.Mqtt
 
           cfg.SetLoggerFactory(provider.GetService<ILoggerFactory>());
 
-          cfg.ReceiveEndpoint("masstransit.mqttconsumer", e =>
+          cfg.ReceiveEndpoint("MT.RBTMQconsumer", e =>
           {
-            e.Bind("masstransit.mqtt", x =>
+            e.Bind("MT.RBTMQ", x =>
             {
               x.ExchangeType = ExchangeType.Topic;
 

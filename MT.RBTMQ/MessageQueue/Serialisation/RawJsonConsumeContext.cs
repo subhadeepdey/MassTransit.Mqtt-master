@@ -1,4 +1,5 @@
-﻿using MassTransit.Context;
+﻿using MassTransit;
+using MassTransit.Context;
 using MassTransit.Metadata;
 using MassTransit.Serialization;
 using MassTransit.Util;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace MassTransit.Mqtt.MessageQueue.Serialisation
+namespace MT.RBTMQ.MessageQueue.Serialisation
 {
   public class RawJsonConsumeContext : DeserializerConsumeContext
   {

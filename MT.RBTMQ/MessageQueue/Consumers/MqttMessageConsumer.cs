@@ -1,10 +1,11 @@
-﻿using MassTransit.Mqtt.MessageQueue.Messages;
+﻿using MassTransit;
+using MT.RBTMQ.MessageQueue.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MassTransit.Mqtt.MessageQueue.Consumers
+namespace MT.RBTMQ.MessageQueue.Consumers
 {
   public class MqttMessageConsumer : IConsumer<MqttMessage>
   {
