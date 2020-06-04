@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace MT.RBTMQ.MessageQueue.Messages
 {
-  public class MqttMessage : IRawJsonArrayMessage<MqttItem>
+  public class RosterMessage : IRawJsonArrayMessage<RosterItem>
   {
-    public IEnumerable<MqttItem> Items { get; set; }
+    public IEnumerable<RosterItem> Items { get; set; }
   }
 
-  public class MqttItem
-  {
+  public class RosterItem
+    {
     public DateTimeOffset? Timestamp { get; set; }
     public string Type { get; set; }
     public string Mac { get; set; }

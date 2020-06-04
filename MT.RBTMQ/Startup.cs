@@ -40,7 +40,7 @@ namespace MT.RBTMQ
 
       services.AddMassTransit(x =>
       {
-        x.AddConsumer<MqttMessageConsumer>();
+        x.AddConsumer<RosterMessageConsumer>();
 
         x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
         {
@@ -50,15 +50,15 @@ namespace MT.RBTMQ
             h.Password(busSettings.Password);
           });
 
-          cfg.ClearMessageDeserializers();
+            cfg.ClearMessageDeserializers();
 
-          var deserializer = JsonSerializer.CreateDefault();
-          var jsonContent = new ContentType("application/json");
-          cfg.AddMessageDeserializer(jsonContent, () => new RawJsonMessageDeserializer(jsonContent, deserializer));
-          var mstJsonContent = new ContentType("application/vnd.masstransit+json");
-          cfg.AddMessageDeserializer(mstJsonContent, () => new RawJsonMessageDeserializer(mstJsonContent, deserializer));
+            var deserializer = JsonSerializer.CreateDefault();
+            var jsonContent = new ContentType("application/json");
+            cfg.AddMessageDeserializer(jsonContent, () => new RawJsonMessageDeserializer(jsonContent, deserializer));
+            var mstJsonContent = new ContentType("application/vnd.masstransit+json");
+            cfg.AddMessageDeserializer(mstJsonContent, () => new RawJsonMessageDeserializer(mstJsonContent, deserializer));
 
-          cfg.SetLoggerFactory(provider.GetService<ILoggerFactory>());
+            cfg.SetLoggerFactory(provider.GetService<ILoggerFactory>());
 
           cfg.ReceiveEndpoint("MT.RBTMQconsumer", e =>
           {
@@ -70,8 +70,8 @@ namespace MT.RBTMQ
               x.RoutingKey = "#";
             });
 
-            e.ConfigureConsumer<MqttMessageConsumer>(provider);
-            EndpointConvention.Map<MqttMessage>(e.InputAddress);
+            e.ConfigureConsumer<RosterMessageConsumer>(provider);
+            EndpointConvention.Map<RosterMessage>(e.InputAddress);
           });
         }));
       });

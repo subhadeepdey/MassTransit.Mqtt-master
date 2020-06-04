@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MT.RBTMQ.MessageQueue.Consumers
 {
-  public class MqttMessageConsumer : IConsumer<MqttMessage>
+  public class RosterMessageConsumer : IConsumer<RosterMessage>
   {
-    public async Task Consume(ConsumeContext<MqttMessage> context)
+    public async Task Consume(ConsumeContext<RosterMessage> context)
     {
       //context.Message.
 
